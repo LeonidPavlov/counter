@@ -4,11 +4,11 @@ python3 -m venv venv
 
 venv/bin/pip install pytest
 
-venv/bin/pytest
+venv/bin/python -m pytest
 
 venv/bin/pip install --upgrade pyinstaller
 
-venv/bin/pyinstaller chooser.py --onefile
+venv/bin/pyinstaller cli.py --onefile
 
-venv/bin/python chooser.py
+venv/bin/python cli.py
 

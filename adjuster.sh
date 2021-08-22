@@ -8,7 +8,12 @@ venv/bin/python -m pytest
 
 venv/bin/pip install --upgrade pyinstaller
 
+rm -f dist/date_time_chooser
+
 venv/bin/pyinstaller cli.py --onefile
 
-venv/bin/python cli.py
+mv dist/cli dist/date_time_chooser
+
+./dist/date_time_chooser
+
 

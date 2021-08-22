@@ -2,19 +2,14 @@ import tkinter.ttk as ttk
 import tkinter as tk
 
 from chooser.view.clock_label import ClockLabel
-
+from chooser.view.root import Root
 
 class Base(ttk.Frame):
 
-    __root: tk.Tk
-
-    @staticmethod
-    def get_root() -> tk.Tk:
-        return Base.__root
-
-    def __init__(self, root: tk.Tk, **kwargs) -> None:
-        super().__init__(root, **kwargs)
-        Base.__root = root
+    def __init__(self, **kwargs) -> None:
+        super().__init__(Root.get_root(), **kwargs)
         self.grid()
-        ClockLabel(self)
+        b = ttk.Button(self, text = 'NAHUY', command = Root.destroy_application)
+        b.grid()
         
+    

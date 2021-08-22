@@ -3,6 +3,7 @@ from datetime import datetime as dt
 import tkinter as tk
 
 from chooser.view.entry_editor import Editor
+from chooser.view.root import Root
 
 class ClockLabel(ttk.Label):
 
@@ -10,9 +11,11 @@ class ClockLabel(ttk.Label):
                  column: int = 0, row: int = 0) -> None:
         super().__init__(master, text=text)
         self.grid(column=column, row=row)
-        # self.going_watch_in_label(Vars.get_variable('date_time_format_string')\
-                                                        # .get())
-        # self.bind('<Button-3>', self.change_format_string)
+        Root.set_variable('date_time_format_string', 
+                tk.StringVar(Root.get_root(),'%A  %d %B  %H:%M:%S  %Y  week %W'))
+        self.going_watch_in_label(Root.get_variable('date_time_format_string')\
+                                                                        .get())
+        self.bind('<Button-3>', self.change_format_string)
 
     def going_watch_in_label(self,
                              format_string: str = '%S') -> None:
@@ -23,6 +26,5 @@ class ClockLabel(ttk.Label):
 
         count()
 
-    # def change_format_string(self, event) -> None:
-    #     Editor('edit date format', 
-    #             Vars.get_variable('date_time_format_string').get())
+    def change_format_string(self, event) -> None:  
+        Editor(self)

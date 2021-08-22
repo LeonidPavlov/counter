@@ -11,5 +11,5 @@ class Base(ttk.Frame):
         self.grid()
         b = ttk.Button(self, text = 'NAHUY', command = Root.destroy_application)
         b.grid()
-        
+        ClockLabel(self)
     

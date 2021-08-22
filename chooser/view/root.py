@@ -31,11 +31,14 @@ class Root:
 
 
     @staticmethod
-    def set_string_variable(name: str = 'noname',
-                            content: str = 'default') -> None:
-        Root.__variables[name] = tk.StringVar(Root.get_root(), content)
+    def set_variable(name: str = 'noname',
+                            variable: tk.Variable = None) -> None:
+        Root.__variables[name] = variable
 
 
     @staticmethod
     def get_variable(name: str = 'noname') -> tk.Variable:
         return Root.__variables[name]
+
+
+    # NEED TO CREATE AND TEST UPDATE METHOD FOR DICTONARY

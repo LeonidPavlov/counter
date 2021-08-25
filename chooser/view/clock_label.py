@@ -4,7 +4,7 @@ import tkinter as tk
 
 from chooser.view.entry_editor import Editor
 from chooser.view.root import Root
-
+from chooser.view.elements import PopUp
 
 class ClockLabel(ttk.Label):
     def __init__(self, master: ttk.Frame, text: str = 'something wrong',
@@ -18,6 +18,10 @@ class ClockLabel(ttk.Label):
                           tk.StringVar(Root.get_root(), self.format_string))
         self.going_watch_in_label()
         self.bind('<Button-3>', self.run_format_sting_editor)
+
+        popup: PopUp = PopUp('edit format of date\n right button click')
+        self.bind('<Enter>', popup.open)
+        self.bind('<Leave>', popup.close)
 
     def going_watch_in_label(self) -> None:
         def count() -> None:

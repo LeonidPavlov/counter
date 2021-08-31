@@ -19,3 +19,12 @@ class PopUp:
 
     def close(self, event) -> None:
         self.top.destroy()
+
+
+class Sticker(ttk.Label):
+    def __init__(self, master: ttk.Frame, text: str = 'label', column: int = 0,
+                 row: int = 0, columnspan: int = 1, rowspan: int = 1, **kwargs):
+        super().__init__(master, text=text, **kwargs)
+        self.grid(column=column, row=row, columnspan=columnspan,
+                  rowspan=rowspan)
+        

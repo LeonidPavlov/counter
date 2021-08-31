@@ -3,14 +3,14 @@ import tkinter as tk
 
 class Achtung:
     def __init__(self, error: Exception = RuntimeError(),
-                 file: str = 'file unknoun',
+                 file: str = 'file unknown',
                  where: str = 'unknown place', **kwargs) -> None:
         top = tk.Toplevel()
         top.title('error')
         frame = tk.Frame(top, background='dark red', pady=10, padx=10)
         frame.pack()
-        label = tk.Label(frame, text=f'in {__file__} file\n' + \
-                                     f'in {where}\n' + \
+        label = tk.Label(frame, text=f'in {__file__} file\n' +
+                                     f'in {where}\n' +
                                      f'ERROR -> {repr(error)}',
                          foreground='yellow',
                          background='dark red',
@@ -22,7 +22,7 @@ class Achtung:
 
 
 class Info:
-    def __init__(self, info: str = 'default ingo') -> None:
+    def __init__(self, info: str = 'default info') -> None:
         top = tk.Toplevel()
         top.title('info')
         frame = tk.Frame(top, background='dark green', pady=10, padx=10)
@@ -34,7 +34,7 @@ class Info:
                           foreground='pink', command=top.destroy)
         close.pack()
 
-
+# testing
 def shuher(event) -> None:
     Achtung(where='class constructor', error=ArithmeticError())
 

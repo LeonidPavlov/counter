@@ -6,6 +6,7 @@ from chooser.view.entry_editor import Editor
 from chooser.view.root import Root
 from chooser.view.elements import PopUp
 
+
 class ClockLabel(ttk.Label):
     def __init__(self, master: ttk.Frame, text: str = 'something wrong',
                  column: int = 0, row: int = 0) -> None:
@@ -26,7 +27,8 @@ class ClockLabel(ttk.Label):
     def going_watch_in_label(self) -> None:
         def count() -> None:
             time: dt = dt.now()
-            self.config(text=time.strftime(Root.get_variable(self.variable_name).get()))
+            self.config(text=time.strftime(
+                        Root.get_variable(self.variable_name).get()))
             self.after(1000, count)
 
         count()

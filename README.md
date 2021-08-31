@@ -1,4 +1,4 @@
-programm is a part of another and have limited functionalyty
+programm is a part of another and have limited functionality
 it create date time instanse from date picker
 
 
@@ -23,4 +23,4 @@ create runnable file chooser in directory dist
 run chooser runnable file
 
 for other operating systems need to use modifications 
-of same commands as in file  adjuster.sh
+of same commands as in file  adjuster.sh maybe

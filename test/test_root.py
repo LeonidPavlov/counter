@@ -1,7 +1,7 @@
 import pytest
 import tkinter as tk
 
-from chooser.view.root import Root
+from chooser.root import Root
 
 Root()
 

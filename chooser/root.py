@@ -6,7 +6,7 @@ class Root:
 
     __variables: dict = {}
 
-    __base_instance = None
+    default_format_string: str = '%A  %d %B  %H:%M:%S  %Y  week %W'
     
     @staticmethod
     def get_root() -> tk.Tk:

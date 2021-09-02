@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 
-from chooser.view.root import Root
+from chooser.root import Root
 
 
 class PopUp:
@@ -13,7 +13,7 @@ class PopUp:
         self.top = tk.Toplevel()
         self.top.attributes('-type', 'dock')
         y_plus: int = Root.get_root().winfo_height()
-        self.top.geometry(f'+{x_y[0]}+{(x_y[1] + 2 * y_plus )}')
+        self.top.geometry(f'+{x_y[0]}+{x_y[1] + 30}')
         label = ttk.Label(self.top, text=self.message)
         label.grid()
 
@@ -27,4 +27,11 @@ class Sticker(ttk.Label):
         super().__init__(master, text=text, **kwargs)
         self.grid(column=column, row=row, columnspan=columnspan,
                   rowspan=rowspan)
-        
+
+class Pin(ttk.Button):
+    def __init__(self, master: ttk.Frame, text: str = 'button', column: int = 0,
+                 row: int = 0, columnspan: int = 1, rowspan: int = 1, 
+                 **kwargs) -> None:
+        super().__init__(master, text=text, **kwargs)
+        self.grid(column=column, row=row, columnspan=columnspan,
+                  rowspan=rowspan)

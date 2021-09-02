@@ -2,7 +2,7 @@ import tkinter.ttk as ttk
 import tkinter as tk
 
 from chooser.view.clock_label import ClockLabel
-from chooser.view.root import Root
+from chooser.root import Root
 from chooser.view.calendar import Calendar
 
 

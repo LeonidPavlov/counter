@@ -6,3 +6,4 @@ dist
 *.spec
 chooser.spec
 .idea
+todo.txt

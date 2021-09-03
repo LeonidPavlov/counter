@@ -25,22 +25,31 @@ class Calendar(ttk.Frame):
 
     def __month_content(self) -> None:
         order = OrderOfDays(self.date)
-        rrow: int = 1
+        row: int = 1
         for j in range(order.week_numbers()[0], order.week_numbers()[1] + 1):
-            Sticker(self, str(j), 0, rrow )
-            rrow += 1
+            Sticker(self, str(j), 0, row )
+            row += 1
 
         day: int = 1
         col: int = order.week_index_of_firs_day_iso()
-        rrow: int = 1
-        while (day <= order.amount_days_in_month()):
-            label = Sticker(self, str(day), column=col, row=rrow)
-            label.bind('<Button-1>', self.callback)
-            day += 1
-            col += 1
-            if col % 8 == 0:
-                col = 1
-                rrow +=1 
-
-    def callback(self, event) -> None:
-        print('callback')
+        row: int = 1
+        amount_days = order.amount_days_in_month()
+        self.labels = []
+        while (day < amount_days):
+            print(day)
+            try:
+                label = Sticker(self, str(day), column=col, row=row)
+                self.labels.insert(day,label)
+                self.labels[day].bind('<Button-1>', lambda event : 
+                                        self.callback(event, label.cget('text')))
+                day += 1
+                col += 1
+                if col % 8 == 0:
+                    col = 1
+                    row +=1 
+            except IndexError as err:
+                print('out of range')
+    def callback(self, event, text:str) -> None:
+        print(text)
+        # date = dt(self.date.year, self.date.month, day)
+        # print(date.ctime())

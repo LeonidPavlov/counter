@@ -12,15 +12,21 @@ it's do next:
 
 install python3 venv
 
-install pytest in venv
+install pytest, pycairo for gtk+, PyGObject for gkt+, pyinstaller
+
+pytest in virtual environment
 
 run tests
-
-install pyinstaller
 
 create runnable file chooser in directory dist
 
 run chooser runnable file
 
 for other operating systems need to use modifications 
-of same commands as in file  adjuster.sh maybe
+of same commands as in file  adjuster.sh
+
+
+P.S. I tried run tkinter ttk for simplicity, but crashed with that problem:
+I attempted to bind label or button to event within cycle, because elements was about 100.
+For this problem  tkinter not  intended, only in list
+So i migrate to use Gtk+ or if python don't work this way exist C with some complicity, but with warranty work

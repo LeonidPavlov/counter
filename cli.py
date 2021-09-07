@@ -3,7 +3,7 @@ from typing import List
 from PyQt5.QtWidgets import QApplication, QPushButton, QVBoxLayout,\
          QWidget, QMainWindow
 
-from chooser_qt.view.view import CalendarView
+from chooser.calendar_pane import CalendarPane
 
 
 class NonAppBase(QApplication):
@@ -26,6 +26,6 @@ class NonAppBase(QApplication):
         self.exec()
 
     def open_calendar(self):
-        if self.w is None:
-            self.w = CalendarView()
+        self.w = CalendarPane()
+            
 NonAppBase.start([])

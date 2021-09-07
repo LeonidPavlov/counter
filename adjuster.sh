@@ -2,20 +2,16 @@
 
 python3 -m venv venv
 
-venv/bin/pip install pytest
+venv/bin/python install pip
 
-venv/bin/pip instal pyqt5
-
-venv/bin/pip install --upgrade pyinstaller
+venv/bin/pip install --upgrade fbs PyQt5 PyInstaller==3.4 pytest
 
 venv/bin/python -m pytest
 
-rm -f dist/date_time_chooser
+rm -f dist/cli
 
 venv/bin/pyinstaller cli.py --onefile
 
-mv dist/cli dist/date_time_chooser
-
-./dist/date_time_chooser
+./dist/cli
 
 
